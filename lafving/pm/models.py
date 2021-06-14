@@ -65,13 +65,14 @@ class Session(models.Model):
     # Set up Pause model with many to one relationship
 
 class Step(models.Model):
-    description = models.CharField(max_length=100)
-    time_estimate = models.DurationField()
-    done = models.BooleanField()
     deliverable = models.ForeignKey(
         'Deliverable',
         on_delete=models.CASCADE,
     )
+    description = models.CharField(max_length=100)
+    time_estimate = models.DurationField()
+    done = models.BooleanField()
+    
     def __str__(self):
         return self.description
 
